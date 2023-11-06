@@ -1,0 +1,16 @@
+﻿@JsonBasedLocalization_HostAddress = https://localhost:44374
+
+GET {{JsonBasedLocalization_HostAddress}}/api/home/string
+Content-Type: application/json
+Accept-Language: ar-EG
+###
+
+POST {{JsonBasedLocalization_HostAddress}}/api/home
+Content-Type: application/json
+Accept-Language: ar-EG
+
+{
+  "name":"amr"
+}
+
+###

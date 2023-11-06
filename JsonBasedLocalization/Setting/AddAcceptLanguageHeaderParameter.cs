@@ -1,0 +1,27 @@
+﻿using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.SwaggerUI;
+
+public class AddAcceptLanguageHeaderParameter : IOperationFilter
+{
+    public void Apply(OpenApiOperation operation, OperationFilterContext context)
+    {
+        if (operation.Parameters == null)
+        {
+            operation.Parameters = new List<OpenApiParameter>();
+        }
+
+        // Add "Accept-Language" header to the Swagger documentation
+        operation.Parameters.Add(new OpenApiParameter
+        {
+            Name = "Accept-Language",
+            In = ParameterLocation.Header,
+            Description = "Language preference for the request",
+            Required = false,
+            Schema = new OpenApiSchema
+            {
+                Type = "string"
+            }
+        });
+    }
+}
